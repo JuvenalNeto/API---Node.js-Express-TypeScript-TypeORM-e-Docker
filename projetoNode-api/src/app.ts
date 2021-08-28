@@ -5,6 +5,7 @@ import * as logger from 'morgan'
 
 import { conectarServidorDB } from './config/db'
 import { routerUsuario } from './routes/usuario'
+import { routerLancamento } from './routes/lancamento'
 
 export const app = express()
 
@@ -17,4 +18,5 @@ app.use(logger('dev'))
 conectarServidorDB()
 
 app.use('/usuario', routerUsuario)
+app.use('/lancamento', routerLancamento)
 app.use('/', (req, res) => res.send('Api do app juvenal'))
